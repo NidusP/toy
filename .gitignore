@@ -1,0 +1,47 @@
+node_modules
+.DS_Store
+dist
+# .npmrc
+.cache
+.history
+
+tests/server/static
+tests/server/static/upload
+
+.local
+# local env files
+.env.local
+.env.*.local
+.eslintcache
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*pnpm-debug.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# auto generate file
+components.d.ts
+
+dist-ssr
+build
+types
+*.local
+package-lock.json
+yarn.lock
+yarn-error.log
+# packages/toy/devui/vue-devui.ts
+# packages/toy/devui/theme/theme.scss
+# packages/toy/docs/.vitepress/config/sidebar.ts
+# packages/toy/docs/.vitepress/config/enSidebar.ts
+.pnpm-debug.log
+coverage
