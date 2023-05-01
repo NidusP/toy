@@ -6,7 +6,7 @@ export type positionType = 'top-left' | 'top' | 'top-right' | 'left' | 'right' |
 
 export type StepContent = {
   title: string;
-  content: string;
+  content?: string;
   position?: positionType;
 };
 export type Step = {
@@ -16,13 +16,12 @@ export type Step = {
 export class StepsGuide extends Observer {
   steps: Step[];
   private ele: HTMLDivElement | null = null;
-  private stepIndex = 0;
+  private stepIndex = -1;
   private currentStepPosition: positionType = 'top';
   public destory: null | (() => void) = null;
   constructor(steps: Step[], ele?: HTMLDivElement) {
     super();
     this.steps = steps;
-
     if (ele) {
       this.ele = ele;
       this.init();
@@ -34,13 +33,14 @@ export class StepsGuide extends Observer {
 
     const fn = this.updateGuidePosition.bind(this);
     window.addEventListener('resize', fn);
-
+    // window.addEventListener('scroll', fn);
     this.destory = () => {
       window.removeEventListener('resize', fn);
-      this.ele = null;
-      this.steps = [];
-      this.stepIndex = 0;
-      this.destory = null;
+      this.setCurrent(-1);
+      // this.ele = null;
+      // this.steps = [];
+      // this.stepIndex = -1;
+      // this.destory = null;
     };
   }
 
@@ -59,18 +59,11 @@ export class StepsGuide extends Observer {
     this.emitStep();
     this.updateGuidePosition();
   }
-  public next() {
-    this.stepIndex++;
-    this.emitStep();
-  }
-
-  public prev() {
-    this.stepIndex--;
-    this.emitStep();
-  }
 
   public updateGuidePosition(): boolean {
     const stepGuideElement = this.ele;
+    if (!stepGuideElement) return false;
+
     this.currentStepPosition && stepGuideElement.classList.remove(this.currentStepPosition);
 
     const currentStep = this.steps[this.stepIndex];
@@ -86,6 +79,7 @@ export class StepsGuide extends Observer {
     stepGuideElement.classList.add(this.currentStepPosition);
 
     let triggerElement = currentStep.element;
+
     if (isString(triggerElement)) {
       triggerElement = document.querySelector(triggerElement) as HTMLElement;
     }
@@ -94,7 +88,6 @@ export class StepsGuide extends Observer {
       return false;
     }
     const targetRect = triggerElement.getBoundingClientRect();
-
     _left = targetRect.left + triggerElement.clientWidth / 2 - stepGuideElement.clientWidth / 2 + baseLeft;
     _top = targetRect.top + triggerElement.clientHeight / 2 - stepGuideElement.clientHeight / 2 + baseTop;
 

@@ -1,13 +1,7 @@
-import type { ExtractPropTypes, PropType } from "vue";
-type positionType =
-  | "top-left"
-  | "top"
-  | "top-right"
-  | "left"
-  | "right"
-  | "bottom-left"
-  | "bottom"
-  | "bottom-right";
+import type { Step } from '@toy/core';
+import type { ExtractPropTypes, PropType } from 'vue';
+
+type positionType = 'top-left' | 'top' | 'top-right' | 'left' | 'right' | 'bottom-left' | 'bottom' | 'bottom-right';
 export type positionConf =
   | {
       left: number;

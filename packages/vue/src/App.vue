@@ -33,7 +33,7 @@ const handleStepChange = (index: number, prevIndex: number) => {
   return true;
 };
 
-const ars = { name: '123', position: 'left' }
+console.log()
 
 </script>
 
@@ -52,25 +52,23 @@ const ars = { name: '123', position: 'left' }
     <button class="bottom ml-s" @click="handleClick(5)">Bottom 6</button>
     <button class="bottom-right ml-s" @click="handleClick(4)">Bottom-right 5</button>
   </div>
-  <StepsGuide ref="stepRef" :steps="steps" :step-change="handleStepChange"></StepsGuide>
+  <StepsGuide ref="stepRef" :steps="positionSteps" :step-change="handleStepChange"></StepsGuide>
 
+  <hr />
 
   <div class="flex mb-s justify-center">
-    <button class="top-left ml-s" v-steps-guide:1="'11111111111111'">Top-left 1</button>
-    <button class="top ml-s" v-StepsGuide:2="{
-        content: '2222222222',
-        position: 'left'
-      }">Top 2</button>
-    <button class="top-right ml-s" v-StepsGuide:3="'3333333333333333'">Top-right 3</button>
+    <button class="top-left ml-s" v-steps-guide:default.1="'你大爷的 你什么情况啊 卧槽， 别搞我行不行 你妹的 真是难搞'">Top-left 1</button>
+    <button class="top ml-s" v-StepsGuide.2="'2222222222222222'">Top 2</button>
+    <button class="top-right ml-s" v-StepsGuide.3="'3333333333333333'">Top-right 3</button>
   </div>
   <div class="flex mb-s justify-center">
-    <button class="left ml-s" v-StepsGuide:4="'4444444444444444444'">Left 8</button>
-    <button class="right ml-s" v-StepsGuide:5="'5555555555555555555'">Right 4</button>
+    <button class="left ml-s" v-StepsGuide.8="'88888888888888888888'">Left 8</button>
+    <button class="right ml-s" v-StepsGuide.4="'444444444444444444444'">Right 4</button>
   </div>
   <div class="flex mb-s justify-center">
-    <button class="bottom-left ml-s" @click="handleClick(6)">Bottom-left 7</button>
-    <button class="bottom ml-s" @click="handleClick(5)">Bottom 6</button>
-    <button class="bottom-right ml-s" @click="handleClick(4)">Bottom-right 5</button>
+    <button class="bottom-left ml-s" v-StepsGuide.7="'7777777777777777777777'">Bottom-left 7</button>
+    <button class="bottom ml-s" v-StepsGuide.6="'66666666666666666666666'">Bottom 6</button>
+    <button class="bottom-right ml-s" v-StepsGuide.5="'55555555555555555555555'">Bottom-right 5</button>
   </div>
 </template>
 
