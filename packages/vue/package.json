@@ -1,6 +1,5 @@
 {
-  "name": "@toy/vue",
-  "private": true,
+  "name": "steps-guide-vue",
   "version": "0.0.0",
   "type": "module",
   "files": [

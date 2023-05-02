@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "pnpm --filter @toy/vue dev",
     "lint:eslint": "eslint --ext .ts,.vue packages",
-    "lint:lint-staged": "lint-staged"
+    "lint:lint-staged": "lint-staged",
+    "publish:vue": "pnpm publish --filter steps-guide-vue"
   },
   "engines": {
     "node": ">=16",
