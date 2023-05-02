@@ -1,8 +1,8 @@
 import { StepsGuide } from '@toy/core';
-import { computed, onMounted, ref } from 'vue';
+import { computed, nextTick, onMounted, ref } from 'vue';
 import type { StepsGuideProps } from './utils';
 
-export function useStepsGuide(props: StepsGuideProps) {
+export function useStepsGuide(props: StepsGuideProps, emit: (arg0: 'closeGuide') => void) {
   const stepIndex = ref(0);
   const isShow = ref(false);
   const currentStep = computed(() => props.steps[stepIndex.value]);
@@ -12,7 +12,6 @@ export function useStepsGuide(props: StepsGuideProps) {
 
   onMounted(() => {
     stepsGuide = new StepsGuide(props.steps, stepsRef.value!);
-
     stepsGuide.on('step', (index) => {
       stepIndex.value = index;
     });
@@ -22,11 +21,11 @@ export function useStepsGuide(props: StepsGuideProps) {
     });
   });
   function showGuide(index = 0) {
-    
     stepsGuide.setCurrent(index);
   }
 
   function closeGuide() {
+    emit('closeGuide');
     stepsGuide.setCurrent(-1);
   }
 
