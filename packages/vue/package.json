@@ -1,13 +1,14 @@
 {
   "name": "steps-guide-vue",
-  "version": "0.0.0",
+  "version": "0.0.7",
   "type": "module",
   "files": [
-    "lib"
+    "lib/*"
   ],
+  "keywords": ["vue3", "vue", "steps-guide", "guide"],
   "main": "./lib/index.umd.cjs",
   "module": "./lib/index.js",
-  "typing": "./lib/index.d.ts",
+  "types": "./lib/index.d.ts",
   "homepage": "https://github.com/NidusP/toy.git",
   "repository": {
     "type": "git",
@@ -15,7 +16,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build && pnpm create:package",
+    "build": "vue-tsc && vite build",
     "create:package": "node ./cli/index.js package",
     "preview": "vite preview",
     "docs:dev": "vitepress dev docs",
@@ -23,11 +24,8 @@
     "docs:serve": "vitepress serve docs"
   },
   "peerDependencies": {
-    "vue": "^3.2.47"
-  },
-  "dependencies": {
-    "@toy/core": "workspace:^1.0.0",
-    "vue": "3.2.47"
+    "vue": "^3.2.47",
+    "@toy/core": "workspace:^1.0.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.1.0",
