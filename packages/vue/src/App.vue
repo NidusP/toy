@@ -27,7 +27,6 @@ const handleStepChange = (index: number, prevIndex: number) => {
   return true;
 };
 
-console.log()
 
 </script>
 
