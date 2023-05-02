@@ -1,6 +1,6 @@
 import { StepsGuide } from '@toy/core';
-import { computed, nextTick, onMounted, ref } from 'vue';
-import type { StepsGuideProps } from './utils';
+import { computed, onMounted, ref } from 'vue';
+import type { StepsGuideProps } from './typing';
 
 export function useStepsGuide(props: StepsGuideProps, emit: (arg0: 'closeGuide') => void) {
   const stepIndex = ref(0);

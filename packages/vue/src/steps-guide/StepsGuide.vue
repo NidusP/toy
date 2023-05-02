@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import { stepsGuideProps } from './utils';
+import { stepsGuideProps } from './typing';
 import { useStepsGuide } from './hooks';
 
 const props = defineProps(stepsGuideProps)
 const emit = defineEmits(['closeGuide']);
 
 const { stepsRef, stepIndex, currentStep, stepsCount, showGuide, closeGuide } = useStepsGuide(props, emit)
-
-const bgColor = '#5e7ce0'
 
 defineExpose({
   stepIndex,
@@ -47,7 +45,7 @@ defineExpose({
 
 <style lang="scss">
 :root {
-  --toy-brand: #5e7ce0;
+  --toy-brand: #0c9908;
   --toy-light-text: #ffffff;
   --toy-dark-text: #252b3a;
   --toy-shadow-length-feedback-overlay: 0 8px 16px 0;

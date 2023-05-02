@@ -1,0 +1,207 @@
+@charset "UTF-8";
+:root {
+  --toy-brand: #0c9908;
+  --toy-light-text: #ffffff;
+  --toy-dark-text: #252b3a;
+  --toy-shadow-length-feedback-overlay: 0 8px 16px 0;
+  --toy-border-radius-feedback: 4px;
+  --toy-font-size: 14px;
+  --toy-font-size-page-title: 16px;
+}
+.steps-guide {
+  width: 400px;
+  background: var(--toy-brand);
+  box-shadow: var(--toy-shadow-length-feedback-overlay) rgba(81, 112, 255, 0.3);
+  border-radius: var(--toy-border-radius-feedback);
+  font-size: var(--toy-font-size);
+  color: var(--toy-light-text);
+  padding: 20px;
+  position: fixed;
+}
+.steps-guide .steps-guide__title {
+  font-size: var(--toy-font-size-page-title);
+  opacity: 1;
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+.steps-guide > .steps-guide__arrow,
+.steps-guide > .steps-guide__arrow::after {
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+.steps-guide > .steps-guide__arrow {
+  border-width: 8px;
+}
+.steps-guide.left > .steps-guide__arrow {
+  top: 23px;
+  right: -6px;
+  margin-top: -3px;
+  border-right-width: 0;
+  transform: rotate(-135deg);
+  border-left-color: var(--toy-brand);
+}
+.steps-guide.top > .steps-guide__arrow, .steps-guide.top-left > .steps-guide__arrow, .steps-guide.top-right > .steps-guide__arrow {
+  bottom: -6px;
+  border-bottom-width: 0;
+  border-top-color: var(--toy-brand);
+  transform: rotate(135deg);
+}
+.steps-guide.top > .steps-guide__arrow {
+  left: calc(50% - 4px);
+}
+.steps-guide.top-left > .steps-guide__arrow {
+  left: 23px;
+}
+.steps-guide.top-right > .steps-guide__arrow {
+  right: 23px;
+  transform: rotate(-135deg);
+}
+.steps-guide.right > .steps-guide__arrow {
+  top: 23px;
+  left: -6px;
+  margin-top: -3px;
+  border-left-width: 0;
+  transform: rotate(135deg);
+  border-right-color: var(--toy-brand);
+}
+.steps-guide.bottom > .steps-guide__arrow, .steps-guide.bottom-left > .steps-guide__arrow, .steps-guide.bottom-right > .steps-guide__arrow {
+  top: -6px;
+  margin-left: 3px;
+  border-top-width: 0;
+  border-bottom-color: var(--toy-brand);
+}
+.steps-guide.bottom > .steps-guide__arrow {
+  left: calc(50% - 4px);
+  transform: rotate(-135deg);
+}
+.steps-guide.bottom-right > .steps-guide__arrow {
+  right: 23px;
+  transform: rotate(135deg);
+}
+.steps-guide.bottom-left > .steps-guide__arrow {
+  left: 23px;
+  transform: rotate(-135deg);
+}
+.steps-guide > .steps-guide__shining-dot,
+.steps-guide .steps-guide__shining-plus {
+  position: absolute;
+  background: var(--toy-brand);
+  width: 6px;
+  height: 6px;
+  border-radius: var(--toy-border-radius-feedback);
+}
+.steps-guide.left > .steps-guide__shining-dot, .steps-guide.left > .steps-guide__shining-plus {
+  top: 25px;
+  right: -30px;
+}
+.steps-guide.right > .steps-guide__shining-dot, .steps-guide.right > .steps-guide__shining-plus {
+  top: 25px;
+  left: -30px;
+}
+.steps-guide.top > .steps-guide__shining-dot, .steps-guide.top > .steps-guide__shining-plus {
+  left: calc(50% - 3px);
+  bottom: -30px;
+}
+.steps-guide.top-left > .steps-guide__shining-dot, .steps-guide.top-left > .steps-guide__shining-plus {
+  left: 25px;
+  bottom: -30px;
+}
+.steps-guide.top-right > .steps-guide__shining-dot, .steps-guide.top-right > .steps-guide__shining-plus {
+  right: 25px;
+  bottom: -30px;
+}
+.steps-guide.bottom > .steps-guide__shining-dot, .steps-guide.bottom > .steps-guide__shining-plus {
+  left: calc(50% - 3px);
+  top: -30px;
+}
+.steps-guide.bottom-right > .steps-guide__shining-dot, .steps-guide.bottom-right > .steps-guide__shining-plus {
+  top: -30px;
+  right: 21px;
+}
+.steps-guide.bottom-left > .steps-guide__shining-dot, .steps-guide.bottom-left > .steps-guide__shining-plus {
+  top: -30px;
+  left: 21px;
+}
+.steps-guide .steps-guide__shining-plus {
+  animation: devui-glow 2s 0s infinite;
+}
+.steps-guide .steps-guide__container {
+  position: relative;
+}
+.steps-guide .steps-guide__container > .icon-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+.steps-guide .steps-guide__container .steps-guide__ctrl {
+  display: flex;
+  flex-wrap: wrap;
+}
+.steps-guide .steps-guide__container .steps-guide__ctrl .steps-guide__dots {
+  color: var(--toy-light-text);
+  position: relative;
+  top: 25px;
+  font-size: var(--toy-font-size);
+  height: 30px;
+}
+.steps-guide .steps-guide__container .steps-guide__ctrl .steps-guide__dots > .steps-guide__dots--dot {
+  display: inline-block;
+  margin: 0 5px 0 2px;
+  width: 10px;
+  height: 10px;
+  opacity: 0.2;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+.steps-guide .steps-guide__container .steps-guide__ctrl .steps-guide__dots > .steps-guide__dots--dot.active {
+  opacity: 1;
+}
+.steps-guide .steps-guide__container .steps-guide__ctrl .steps-guide__btn {
+  display: flex;
+  flex-flow: row nowrap;
+  flex-grow: 1;
+  justify-content: flex-end;
+  padding: 20px 0 0 0;
+  white-space: nowrap;
+}
+.steps-guide .steps-guide__container .steps-guide__ctrl .steps-guide__btn > div {
+  color: var(--toy-light-text);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--toy-border-radius);
+  padding: 5px 15px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.steps-guide .steps-guide__container .steps-guide__ctrl .steps-guide__btn > div.steps-guide__prev-step {
+  background: none;
+  border: solid 1px rgba(255, 255, 255, 0.1);
+}
+
+/* 以下定义动画帧 */
+@keyframes devui-glow {
+0% {
+    transform: scale(1);
+    opacity: 0.5;
+}
+25% {
+    transform: scale(2);
+    opacity: 0.3;
+}
+50% {
+    transform: scale(3);
+    opacity: 0.1;
+}
+75% {
+    transform: scale(2);
+    opacity: 0.3;
+}
+100% {
+    transform: scale(1);
+    opacity: 0.5;
+}
+}
